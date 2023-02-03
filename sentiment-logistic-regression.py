@@ -111,7 +111,6 @@ def extract_features(tweet, freqs):
     #bias term is set to 1
     x[0,0] = 1 
     
-    ### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###
     
     # loop through each word in the list of words
     for word in word_l:
@@ -122,7 +121,6 @@ def extract_features(tweet, freqs):
         # increment the word count for the negative label 0
         x[0,2] += freqs.get((word, 0.0),0)
         
-    ### END CODE HERE ###
     assert(x.shape == (1, 3))
     return x
 
@@ -147,7 +145,6 @@ def predict_tweet(tweet, freqs, theta):
     Output: 
         y_pred: the probability of a tweet being positive or negative
     '''
-    ### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###
     
     # extract the features of the tweet and store it into x
     x = extract_features(tweet,freqs)
@@ -155,7 +152,6 @@ def predict_tweet(tweet, freqs, theta):
     # make the prediction using x and theta
     y_pred = sigmoid(np.dot(x,theta))
     
-    ### END CODE HERE ###
     
     return y_pred
 
@@ -171,7 +167,6 @@ def test_logistic_regression(test_x, test_y, freqs, theta):
         accuracy: (# of tweets classified correctly) / (total # of tweets)
     """
     
-    ### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###
     
     # the list for storing predictions
     y_hat = []
@@ -191,7 +186,6 @@ def test_logistic_regression(test_x, test_y, freqs, theta):
     # convert both to one-dimensional arrays in order to compare them using the '==' operator
     
     accuracy = (y_hat==np.squeeze(test_y)).sum()/len(test_x)
-    ### END CODE HERE ###
     
     return accuracy
 
